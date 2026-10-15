@@ -1,8 +1,5 @@
 # Site de apoio e acompanhamento
 
-## Testar localmente
-Abra `index.html` em um navegador ou publique todos os arquivos desta pasta no GitHub Pages.
-
 ## Novidades desta versão
 - Seleção de objetivo e meta pessoal.
 - Página para registrar situações, emoções, intensidade da vontade e estratégias.
