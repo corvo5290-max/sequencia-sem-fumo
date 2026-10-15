@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="motivacional.css">
     <link rel="stylesheet" href="apoio.css">
     <link rel="stylesheet" href="quiz.css">
+    <link rel="stylesheet" href="analise.css">
 </head>
 
 <body>
@@ -117,6 +118,10 @@
 
             <button class="item-menu" data-pagina="gatilhos" type="button">
                 🧠 Meus gatilhos
+            </button>
+
+            <button class="item-menu" data-pagina="analise" type="button">
+                📈 Análise dos registros
             </button>
 
             <button class="item-menu" data-pagina="ajuda" type="button">
@@ -539,6 +544,31 @@
             </div>
         </section>
 
+        <section id="pagina-analise" class="pagina escondido">
+            <div class="card">
+                <p class="pequeno">ANÁLISE LOCAL</p>
+                <h2>O que seus registros mostram?</h2>
+                <p>A análise usa contagens e regras simples nos registros deste navegador. Ela descreve padrões registrados, não descobre causas nem faz diagnóstico.</p>
+                <div class="analise-acoes">
+                    <button id="atualizarAnalise" class="botao-principal" type="button">Atualizar análise</button>
+                    <button class="botao-secundario" data-pagina="gatilhos" type="button">Adicionar registro</button>
+                </div>
+                <p class="aviso-privacidade">Privacidade: esta análise acontece no seu navegador. Os registros não são enviados a serviços externos. Se outras pessoas usam este perfil do navegador, elas podem conseguir ver esses dados.</p>
+            </div>
+            <div id="analiseResumo" class="analise-grade" aria-live="polite">
+                <div class="card"><p>Carregando análise local…</p></div>
+            </div>
+            <div class="card">
+                <h2>Como interpretar</h2>
+                <ul class="analise-notas">
+                    <li>Uma situação aparecer muitas vezes não prova que ela causa a vontade; é uma pista para observar.</li>
+                    <li>Os resultados dependem do que foi registrado. Poucos registros podem não representar toda a sua experiência.</li>
+                    <li>Estratégias escritas no diário são mostradas como anotações, não como prova de que funcionaram.</li>
+                    <li>Você pode conversar sobre esses padrões com alguém de confiança ou um profissional de saúde.</li>
+                </ul>
+            </div>
+        </section>
+
         <section id="pagina-ajuda" class="pagina escondido">
             <div class="card">
                 <p class="pequeno">APOIO PROFISSIONAL</p><h2>Encontrar ajuda</h2>
@@ -623,6 +653,7 @@
     <script src="script.js"></script>
     <script src="apoio.js"></script>
     <script src="quiz.js"></script>
+    <script src="analise.js"></script>
 
 </body>
 
