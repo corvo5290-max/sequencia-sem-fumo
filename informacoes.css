@@ -173,3 +173,33 @@
         transition: none;
     }
 }
+
+
+/* Fotografias médicas reais: a pessoa escolhe se quer revelá-las. */
+.vicio-aviso-imagem {
+    margin: 12px 0 8px;
+    padding: 12px;
+    border-left: 4px solid #b98225;
+    border-radius: 7px;
+    background: #fff8e8;
+    color: #4c3b18;
+    font-size: 13px;
+}
+
+.vicio-mostrar-imagem {
+    margin: 4px 0 8px;
+}
+
+.vicio-legenda-imagem {
+    margin: 7px 0 10px;
+    color: #59665e;
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+.vicio-imagem-indisponivel {
+    min-height: 48px;
+    padding: 12px;
+    color: #4c3b18;
+    background: #fff8e8;
+}
