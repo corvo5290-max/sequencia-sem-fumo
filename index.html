@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="quiz.css">
     <link rel="stylesheet" href="analise.css">
     <link rel="stylesheet" href="informacoes.css">
+    <link rel="stylesheet" href="versao.css">
 </head>
 
 <body>
@@ -127,6 +128,10 @@
 
             <button class="item-menu" data-pagina="ajuda" type="button">
                 🏥 Encontrar ajuda
+            </button>
+
+            <button id="trocarVersao" class="item-menu" type="button">
+                💎 Trocar versão
             </button>
 
         </nav>
@@ -676,6 +681,30 @@
 
 
     <!-- ==================================================
+         ESCOLHA DE VERSÃO (SIMULAÇÃO, SEM PAGAMENTO)
+    ================================================== -->
+
+    <div id="modalVersao" class="versao-fundo" role="dialog" aria-modal="true" aria-labelledby="tituloVersao" aria-describedby="descricaoVersao" hidden>
+        <div class="versao-modal">
+            <p class="pequeno">ESCOLHA COMO QUER USAR</p>
+            <h2 id="tituloVersao">Qual versão você quer usar?</h2>
+            <p id="descricaoVersao">Escolha a versão gratuita ou experimente a versão paga de demonstração. Esta é apenas uma simulação: não existe cobrança nem pagamento real.</p>
+
+            <div class="versao-opcoes">
+                <button id="usarGratis" class="versao-escolha versao-gratis" type="button">
+                    <span class="versao-icone" aria-hidden="true">🌱</span>
+                    <span><strong>Usar versão grátis</strong><small>Continuar com os recursos básicos.</small></span>
+                </button>
+                <button id="usarPaga" class="versao-escolha versao-paga" type="button">
+                    <span class="versao-icone" aria-hidden="true">💎</span>
+                    <span><strong>Experimentar versão paga</strong><small>Desbloquear a biblioteca completa e os conteúdos extras.</small></span>
+                </button>
+            </div>
+            <p class="versao-nota">Modo de demonstração para o projeto. A opção paga não solicita dados nem realiza cobranças.</p>
+        </div>
+    </div>
+
+    <!-- ==================================================
          JAVASCRIPT
     ================================================== -->
 
@@ -685,6 +714,7 @@
     <script src="quiz.js"></script>
     <script src="analise.js"></script>
     <script src="informacoes.js"></script>
+    <script src="versao.js"></script>
 
 </body>
 
