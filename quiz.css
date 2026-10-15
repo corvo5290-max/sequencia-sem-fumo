@@ -1,0 +1,17 @@
+/* Questionário adaptativo */
+.quiz-progresso{height:8px;background:#e8eee9;border-radius:99px;overflow:hidden;margin:20px 0 8px}
+.quiz-progresso-barra{height:100%;width:0;background:#287a4d;border-radius:99px;transition:width .2s ease}
+.quiz-etapa{font-size:13px;color:#66736a;margin:0 0 14px}
+.quiz-pergunta{font-size:21px;line-height:1.35;color:#1e5c39;margin:8px 0 16px}
+.quiz-opcoes{display:grid;gap:10px}
+.quiz-opcao{display:flex;align-items:flex-start;gap:10px;padding:13px;border:1px solid #d5e0d8;border-radius:12px;background:#fff;cursor:pointer;line-height:1.4}
+.quiz-opcao:has(input:checked){border-color:#287a4d;background:#f1f8f3;box-shadow:0 0 0 1px #287a4d}
+.quiz-opcao input{margin-top:3px;accent-color:#287a4d;flex:0 0 auto}
+.quiz-botoes{display:flex;gap:10px;justify-content:space-between;margin-top:22px}
+.quiz-botoes button{flex:1}
+.quiz-resultado-item{padding:13px 0;border-bottom:1px solid #e1e8e3;line-height:1.55}
+.quiz-resultado-item:last-child{border-bottom:0}
+.quiz-resultado h3{color:#1e5c39;margin-bottom:8px}
+.quiz-resultado ul{padding-left:22px;line-height:1.6}
+.quiz-resultado .botao-principal,.quiz-resultado .botao-secundario{margin:8px 8px 0 0}
+@media(max-width:420px){.quiz-pergunta{font-size:19px}.quiz-botoes{flex-direction:column-reverse}}
