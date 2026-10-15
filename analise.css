@@ -1,0 +1,14 @@
+/* Painel de análise estatística local */
+.analise-grade{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px;margin:16px 0}
+.analise-cartao{padding:18px;border:1px solid #e1e8e3;border-radius:14px;background:#fff;min-width:0}
+.analise-cartao h3{margin:0 0 10px;color:#1e5c39;font-size:17px}
+.analise-numero{font-size:30px;font-weight:700;line-height:1.2;color:#287a4d;margin:8px 0}
+.analise-cartao p{line-height:1.55;overflow-wrap:anywhere}
+.analise-lista{list-style:none;padding:0;margin:10px 0 0;display:flex;flex-direction:column;gap:10px}
+.analise-lista li{padding:10px;border-radius:9px;background:#f4f7f5;line-height:1.5;overflow-wrap:anywhere}
+.analise-barra-fundo{height:8px;border-radius:99px;background:#e5ece7;overflow:hidden;margin-top:7px}
+.analise-barra{height:100%;background:#39885b;border-radius:99px;max-width:100%}
+.analise-acoes{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.analise-notas{line-height:1.65;padding-left:22px}
+.analise-vazio{padding:18px;border:1px dashed #b8c9bd;border-radius:12px;background:#fbfdfb}
+@media(max-width:480px){.analise-cartao{padding:14px}.analise-acoes>*{width:100%}}
