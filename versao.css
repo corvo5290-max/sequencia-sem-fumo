@@ -1,0 +1,132 @@
+/* Seletor de versão fictício para demonstração do projeto */
+.versao-fundo[hidden],
+.versao-bloqueada[hidden],
+#bibliotecaVicios[hidden] {
+    display: none !important;
+}
+
+.versao-fundo {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background: rgba(12, 24, 18, 0.72);
+    backdrop-filter: blur(5px);
+    overflow-y: auto;
+}
+
+.versao-modal {
+    width: min(100%, 520px);
+    padding: 28px;
+    background: #fff;
+    color: #24332a;
+    border: 1px solid #dfe8e1;
+    border-radius: 22px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+}
+
+.versao-modal h2,
+.versao-bloqueada h2 {
+    margin: 6px 0 10px;
+}
+
+.versao-modal > p:not(.pequeno),
+.versao-bloqueada > p {
+    line-height: 1.6;
+}
+
+.versao-opcoes {
+    display: grid;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.versao-escolha {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #dbe5de;
+    border-radius: 14px;
+    background: #f8faf8;
+    color: #203329;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.15s ease, transform 0.15s ease, background 0.15s ease;
+}
+
+.versao-escolha:hover {
+    border-color: #43845d;
+    background: #f0f7f1;
+    transform: translateY(-1px);
+}
+
+.versao-escolha strong,
+.versao-escolha small {
+    display: block;
+}
+
+.versao-escolha strong {
+    font-size: 1rem;
+}
+
+.versao-escolha small {
+    margin-top: 5px;
+    color: #59665e;
+    line-height: 1.45;
+}
+
+.versao-icone {
+    display: grid;
+    place-items: center;
+    flex: 0 0 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #e7f0e9;
+    font-size: 23px;
+}
+
+.versao-paga .versao-icone {
+    background: #e9e8fb;
+}
+
+.versao-nota {
+    margin-top: 16px;
+    color: #66716a;
+    font-size: 0.82rem;
+}
+
+.versao-bloqueada {
+    text-align: center;
+    padding: 28px 22px;
+}
+
+.versao-bloqueio-icone {
+    display: grid;
+    place-items: center;
+    width: 68px;
+    height: 68px;
+    margin: 14px auto;
+    border-radius: 20px;
+    background: #eeedff;
+    font-size: 34px;
+}
+
+.versao-bloqueada .botao-principal {
+    margin-top: 8px;
+}
+
+body.versao-modal-aberto {
+    overflow: hidden;
+}
+
+@media (max-width: 480px) {
+    .versao-modal {
+        padding: 22px 18px;
+        border-radius: 18px;
+    }
+}
