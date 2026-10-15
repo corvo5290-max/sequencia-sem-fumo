@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="apoio.css">
     <link rel="stylesheet" href="quiz.css">
     <link rel="stylesheet" href="analise.css">
+    <link rel="stylesheet" href="informacoes.css">
 </head>
 
 <body>
@@ -466,23 +467,42 @@
         >
 
             <div class="card">
+                <p class="pequeno">SOBRE</p>
+                <h2>Sobre o projeto</h2>
+                <p>Este site é uma ferramenta de apoio para definir metas, acompanhar mudanças e reconhecer situações difíceis.</p>
+                <p>Uma dificuldade não apaga todo o progresso. O site não substitui orientação ou atendimento profissional.</p>
+            </div>
 
-                <p class="pequeno">
-                    SOBRE
-                </p>
+            <div class="card biblioteca-vicios" id="bibliotecaVicios">
+                <p class="pequeno">INFORMAÇÃO E AUTOCUIDADO</p>
+                <h2>Conheça os efeitos dos vícios</h2>
+                <p>Escolha um assunto para ver imagens educativas, possíveis efeitos na saúde e fontes confiáveis. Os efeitos variam entre pessoas; esta página não faz diagnósticos.</p>
 
-                <h2>
-                    Sobre o projeto
-                </h2>
+                <div class="vicios-opcoes" role="group" aria-label="Escolha um assunto">
+                    <button class="vicio-opcao" type="button" data-tema="tabaco" aria-pressed="false">
+                        <span class="vicio-opcao-icone" aria-hidden="true">🫁</span>
+                        <span><strong>Tabaco e nicotina</strong><small>Pulmões, coração e respiração</small></span>
+                        <span class="vicio-opcao-seta" aria-hidden="true">›</span>
+                    </button>
+                    <button class="vicio-opcao" type="button" data-tema="alcool" aria-pressed="false">
+                        <span class="vicio-opcao-icone" aria-hidden="true">🧬</span>
+                        <span><strong>Álcool</strong><small>Fígado, cérebro e bem-estar</small></span>
+                        <span class="vicio-opcao-seta" aria-hidden="true">›</span>
+                    </button>
+                    <button class="vicio-opcao" type="button" data-tema="substancias" aria-pressed="false">
+                        <span class="vicio-opcao-icone" aria-hidden="true">🧠</span>
+                        <span><strong>Outras substâncias e medicamentos</strong><small>Riscos que dependem da substância</small></span>
+                        <span class="vicio-opcao-seta" aria-hidden="true">›</span>
+                    </button>
+                    <button class="vicio-opcao" type="button" data-tema="telas" aria-pressed="false">
+                        <span class="vicio-opcao-icone" aria-hidden="true">📱</span>
+                        <span><strong>Telas, jogos e hábitos compulsivos</strong><small>Sono, atenção e rotina</small></span>
+                        <span class="vicio-opcao-seta" aria-hidden="true">›</span>
+                    </button>
+                </div>
 
-                <p>
-                    Este site é uma ferramenta de apoio para definir metas, acompanhar mudanças e reconhecer situações difíceis.
-                </p>
-
-                <p>
-                    Uma dificuldade não apaga todo o progresso. O site não substitui orientação ou atendimento profissional.
-                </p>
-
+                <div id="detalheVicio" class="vicio-detalhe escondido" aria-live="polite" aria-busy="false"></div>
+                <p class="vicio-nota">As imagens são materiais educativos de fontes identificadas, não imagens geradas por IA. As ilustrações de órgãos mostram anatomia e não representam necessariamente danos causados em uma pessoa específica.</p>
             </div>
 
         </section>
@@ -654,6 +674,7 @@
     <script src="apoio.js"></script>
     <script src="quiz.js"></script>
     <script src="analise.js"></script>
+    <script src="informacoes.js"></script>
 
 </body>
 
