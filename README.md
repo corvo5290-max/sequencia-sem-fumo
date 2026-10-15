@@ -18,3 +18,9 @@ Os mapas fazem buscas dinâmicas e não constituem uma lista verificada de servi
 - O resumo oferece ideias gerais e atalhos para gatilhos e serviços de ajuda; não diagnostica.
 - As respostas não são salvas: permanecem apenas na memória da página durante a sessão.
 - Para publicar, envie os arquivos da pasta para a raiz do repositório do GitHub Pages, substituindo os arquivos antigos.
+
+
+## Análise local dos registros
+- A página “Análise dos registros” conta situações e emoções repetidas, combinações situação+emoção, calcula a média das intensidades preenchidas e exibe as estratégias anotadas recentemente.
+- Usa regras e estatísticas simples, sem IA generativa, sem conexão com serviços externos e sem enviar registros para um servidor.
+- Os resultados são descritivos, dependem dos dados registrados e não indicam causa, dependência ou diagnóstico.
