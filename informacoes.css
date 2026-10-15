@@ -203,3 +203,45 @@
     color: #4c3b18;
     background: #fff8e8;
 }
+
+/* Galeria de órgãos e exemplos médicos */
+.vicio-galeria {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+    margin: 16px 0;
+}
+
+.vicio-galeria figure {
+    min-width: 0;
+    margin: 0;
+    padding: 12px;
+    border: 1px solid #dce7df;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.vicio-galeria .vicio-galeria-titulo {
+    margin: 0 0 8px;
+    color: #1e5c39;
+    font-size: 16px;
+}
+
+.vicio-galeria .vicio-imagem {
+    max-height: 300px;
+}
+
+.vicio-cenario {
+    padding: 12px;
+    border-left: 4px solid #6b8fc4;
+    border-radius: 7px;
+    background: #f0f5fc;
+    color: #263d59;
+}
+
+@media (min-width: 700px) {
+    .vicio-galeria {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
+    }
+}
