@@ -31,8 +31,8 @@
     const item={situacao,emocao,intensidade:$('gatilhoIntensidade').value,estrategia:$('gatilhoEstrategia').value.trim().slice(0,500),data:new Date().toISOString()};
     const items=readTriggers();items.push(item);
     try{localStorage.setItem(KEY_TRIGGERS,JSON.stringify(items));}catch{alert('Não foi possível salvar. O armazenamento do navegador pode estar indisponível.');return}
-    $('formGatilho').reset();renderTriggers();
+    $('formGatilho').reset();renderTriggers();window.dispatchEvent(new Event('apoioGatilhosAtualizados'));
   });
-  if($('apagarGatilhos')) $('apagarGatilhos').addEventListener('click',()=>{if(readTriggers().length&&confirm('Apagar todos os registros de gatilhos deste navegador?')){localStorage.removeItem(KEY_TRIGGERS);renderTriggers()}});
+  if($('apagarGatilhos')) $('apagarGatilhos').addEventListener('click',()=>{if(readTriggers().length&&confirm('Apagar todos os registros de gatilhos deste navegador?')){localStorage.removeItem(KEY_TRIGGERS);renderTriggers();window.dispatchEvent(new Event('apoioGatilhosAtualizados'))}});
   renderGoal();renderTriggers();
 })();
