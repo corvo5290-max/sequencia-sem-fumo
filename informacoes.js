@@ -9,10 +9,13 @@
     const topics = {
         tabaco: {
             title: 'Tabaco e nicotina',
-            image: 'https://commons.wikimedia.org/wiki/Special:FilePath/The_Human_Lungs.jpg?width=900',
-            imageAlt: 'Modelo educativo mostrando a anatomia interna dos pulmões humanos.',
-            imageCredit: 'Imagem: Edeh Sophia / Wikimedia Commons — CC0 1.0',
-            imagePage: 'https://commons.wikimedia.org/wiki/File:The_Human_Lungs.jpg',
+            image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Histopathology_of_emphysema.jpg?width=900',
+            imageAlt: 'Fotografia microscópica de tecido pulmonar com alterações associadas ao enfisema.',
+            imageCredit: 'Fotografia médica: Mikael Häggström / Wikimedia Commons — CC0 1.0',
+            imagePage: 'https://commons.wikimedia.org/wiki/File:Histopathology_of_emphysema.jpg',
+            medicalImage: true,
+            imageWarning: 'Esta é uma fotografia médica real de tecido pulmonar. Pode ser desconfortável; a imagem só aparece se você escolher mostrá-la.',
+            imageCaption: 'Imagem microscópica de enfisema. Ela mostra uma amostra médica, não prevê o que acontecerá com cada pessoa.',
             summary: 'O tabaco e a nicotina podem causar dependência. A fumaça do tabaco contém substâncias tóxicas e afeta não apenas os pulmões, mas também outras partes do corpo.',
             effects: [
                 'Aumento do risco de doenças respiratórias, incluindo doença pulmonar obstrutiva crônica.',
@@ -28,10 +31,13 @@
         },
         alcool: {
             title: 'Álcool',
-            image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Human_Liver_%28NIH_BioArt_230%29.png?width=900',
-            imageAlt: 'Ilustração anatômica educativa de um fígado humano.',
-            imageCredit: 'Imagem: NIAID / Ryan Kissinger — domínio público nos Estados Unidos',
-            imagePage: 'https://commons.wikimedia.org/wiki/File:Human_Liver_(NIH_BioArt_230).png',
+            image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Cirrhosis_liver.jpg?width=900',
+            imageAlt: 'Fotografia médica real de uma amostra de fígado com cirrose.',
+            imageCredit: 'Fotografia médica: Narraburra / Wikimedia Commons — CC0 1.0',
+            imagePage: 'https://commons.wikimedia.org/wiki/File:Cirrhosis_liver.jpg',
+            medicalImage: true,
+            imageWarning: 'Esta é uma fotografia médica real de tecido do fígado com cirrose. Pode ser desconfortável; a imagem só aparece se você escolher mostrá-la.',
+            imageCaption: 'A cirrose pode ter diferentes causas, inclusive relacionadas ao álcool. Esta fotografia não permite concluir a causa de um caso específico.',
             summary: 'O álcool pode afetar o cérebro, o fígado e outros órgãos. Os riscos variam conforme a quantidade, a frequência, a idade, a saúde e outros fatores; não existe uma garantia de risco zero.',
             effects: [
                 'Pode prejudicar coordenação, reflexos, julgamento e memória, aumentando o risco de acidentes.',
@@ -51,6 +57,7 @@
             imageAlt: 'Ilustração anatômica educativa de um cérebro humano visto de lado.',
             imageCredit: 'Imagem: NIAID / Ryan Kissinger — domínio público nos Estados Unidos',
             imagePage: 'https://commons.wikimedia.org/wiki/File:Brain_Lateral_(NIH_BioArt_60).png',
+            imageCaption: 'Imagem anatômica do cérebro para contextualizar o tema; não representa um dano específico causado por uma substância.',
             summary: 'Os efeitos dependem muito da substância, da dose, da frequência, da saúde da pessoa e de possíveis combinações. Medicamentos prescritos também podem causar problemas se usados de modo diferente da orientação profissional.',
             effects: [
                 'Podem ocorrer alterações na atenção, memória, humor, coordenação e sono.',
@@ -70,6 +77,7 @@
             imageAlt: 'Pessoa olhando para o smartphone enquanto está em uma reunião social.',
             imageCredit: 'Imagem: Melissa BARRA / Wikimedia Commons — CC BY-SA 2.0',
             imagePage: 'https://commons.wikimedia.org/wiki/File:Man_looks_at_his_smartphone_during_a_gathering.jpg',
+            imageCaption: 'Fotografia de uma pessoa usando o celular em uma situação social; não é uma imagem clínica de dano.',
             summary: 'Usar telas ou jogar não significa, por si só, ter um vício. Vale observar quando a pessoa sente perda de controle e o hábito começa a atrapalhar outras partes importantes da vida.',
             effects: [
                 'Pode reduzir ou atrasar o tempo de sono, especialmente quando o uso invade a hora de dormir.',
@@ -109,26 +117,51 @@
         detail.appendChild(addText('p', topic.summary));
 
         const figure = document.createElement('figure');
-        const image = document.createElement('img');
-        image.className = 'vicio-imagem';
-        image.src = topic.image;
-        image.alt = topic.imageAlt;
-        image.loading = 'lazy';
-        image.referrerPolicy = 'no-referrer';
-        image.addEventListener('error', () => {
-            figure.hidden = true;
-        }, { once: true });
-        figure.appendChild(image);
+        figure.className = topic.medicalImage ? 'vicio-figura-medica' : 'vicio-figura-ilustrativa';
 
-        const credit = document.createElement('figcaption');
-        credit.className = 'vicio-credito';
-        const creditLink = document.createElement('a');
-        creditLink.href = topic.imagePage;
-        creditLink.target = '_blank';
-        creditLink.rel = 'noopener noreferrer';
-        creditLink.textContent = topic.imageCredit;
-        credit.appendChild(creditLink);
-        figure.appendChild(credit);
+        function showImage() {
+            if (figure.querySelector('img')) return;
+            const image = document.createElement('img');
+            image.className = 'vicio-imagem';
+            image.src = topic.image;
+            image.alt = topic.imageAlt;
+            image.loading = 'lazy';
+            image.referrerPolicy = 'no-referrer';
+            image.addEventListener('error', () => {
+                image.alt = 'A imagem não pôde ser carregada. Use o link da fonte para consultá-la.';
+                image.removeAttribute('src');
+                image.classList.add('vicio-imagem-indisponivel');
+            }, { once: true });
+            figure.appendChild(image);
+
+            const caption = addText('p', topic.imageCaption || 'Imagem educativa; ela não representa todos os casos.', 'vicio-legenda-imagem');
+            figure.appendChild(caption);
+
+            const credit = document.createElement('figcaption');
+            credit.className = 'vicio-credito';
+            const creditLink = document.createElement('a');
+            creditLink.href = topic.imagePage;
+            creditLink.target = '_blank';
+            creditLink.rel = 'noopener noreferrer';
+            creditLink.textContent = topic.imageCredit;
+            credit.appendChild(creditLink);
+            figure.appendChild(credit);
+        }
+
+        if (topic.medicalImage) {
+            figure.appendChild(addText('p', topic.imageWarning, 'vicio-aviso-imagem'));
+            const revealButton = addText('button', 'Mostrar fotografia médica', 'botao-secundario vicio-mostrar-imagem');
+            revealButton.type = 'button';
+            revealButton.setAttribute('aria-expanded', 'false');
+            revealButton.addEventListener('click', () => {
+                showImage();
+                revealButton.setAttribute('aria-expanded', 'true');
+                revealButton.hidden = true;
+            }, { once: true });
+            figure.appendChild(revealButton);
+        } else {
+            showImage();
+        }
         detail.appendChild(figure);
 
         detail.appendChild(addText('h4', 'Possíveis malefícios'));
